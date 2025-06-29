@@ -135,7 +135,7 @@ function Hero() {
             <div className="w-full lg:w-auto"> {/* Adjusted width for the button */}
               <button 
                 type="submit" 
-                className="cta btn-block !rounded-[6px] !min-h-[48px] !p-0 pr-2 w-full h-full bg-ga-primary-blue text-white font-bold hover:bg-ga-secondary-red transition-colors duration-200"
+                className="cta btn-block !rounded-[6px] !min-h-[48px] !p-0 w-full h-full bg-ga-primary-blue text-white font-bold hover:bg-ga-secondary-red transition-colors duration-200"
               >
                 Search
               </button>
