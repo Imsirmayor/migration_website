@@ -1,0 +1,335 @@
+/* src/index.css */
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
+/* Your existing custom body and section-title styles */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #fafeff;
+  color: #003348;
+  line-height: 1.6;
+}
+
+.section-title {
+  /* Using @apply to convert existing styles to Tailwind utilities */
+  @apply text-center text-2xl font-bold mb-8 text-primary relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: theme('colors.secondary');
+}
+
+/* --- Navbar Specific Styles --- */
+.f1fn83er { /* Base Navbar container styles from GoAbroad */
+  align-items: flex-start;
+  background: linear-gradient(180deg, rgba(26, 26, 26, 0.75) 0%, rgba(0, 0, 0, 0) 100%);
+  display: flex;
+  flex-direction: row;
+  height: 5rem;
+  justify-content: space-between;
+  left: 0;
+  overflow: unset;
+  padding: 1rem;
+  position: absolute;
+  width: 100%;
+  z-index: 99;
+}
+
+.f1fn83er.sticky { /* Sticky Navbar styles from GoAbroad */
+  align-items: center;
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 20px 0px;
+  display: flex;
+  height: 5rem;
+  left: 0;
+  overflow: unset;
+  position: fixed;
+  top: 0;
+}
+
+.f1fn83er button { /* Button reset from GoAbroad */
+  background: none;
+  border: none;
+}
+
+.hamburger-menu { /* Hamburger menu specific styles from GoAbroad */
+  height: 2.5em;
+  margin-left: .7em;
+}
+.hamburger-menu svg { /* SVG margin reset from GoAbroad */
+  margin: 0;
+}
+
+.ga-logo { /* Logo container styles from GoAbroad */
+  height: 46.5px;
+  width: 60px;
+}
+.ga-logo img { /* Logo image styles from GoAbroad */
+  align-self: center;
+  height: 46.5px;
+  width: 60px;
+}
+.f1fn83er.sticky .ga-logo { /* Sticky logo adjustments from GoAbroad */
+  max-width: 60px;
+}
+.f1fn83er.sticky .ga-logo img { /* Sticky logo image adjustments from GoAbroad */
+  align-self: center;
+  height: 100%;
+  width: auto;
+  filter: brightness(0.2); /* Darken logo on sticky for main React app */
+}
+
+.desktop-topnav { /* Desktop nav general styles from GoAbroad */
+  margin: 0 auto;
+  max-width: 75rem;
+  padding: 0;
+}
+.desktop-topnav nav { /* Desktop nav children arrangement from GoAbroad */
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+.desktop-topnav nav > div { /* Individual nav item spacing from GoAbroad */
+  margin-right: 2.5rem;
+}
+/* IMPORTANT FIX: Removed static color from here */
+.desktop-topnav nav a, .desktop-topnav nav button { /* Nav link styles from GoAbroad */
+  /* color: rgb(255,255,255); */ /* THIS LINE WAS REMOVED/COMMENTED OUT */
+  font-size: 1rem;
+  font-weight: 600;
+  margin-right: 16px;
+  text-decoration: none;
+}
+.desktop-topnav nav > div:last-child, .desktop-topnav nav > div:last-child button { /* Last nav item adjustments from GoAbroad */
+  cursor: pointer;
+  margin-right: 0;
+}
+.desktop-topnav nav > div:last-child button { /* Button specific adjustments from GoAbroad */
+  align-items: center;
+  display: flex;
+  margin-top: -3px;
+}
+.desktop-topnav nav a > svg, .desktop-topnav nav button > svg { /* SVG spacing in nav links from GoAbroad */
+  margin-left: 5px;
+}
+.sign-in { /* Sign-in button specific styles from GoAbroad */
+  border: 1px solid white;
+  border-radius: 6px;
+  color: rgb(255,255,255);
+  cursor: pointer;
+  padding: 6px 10px;
+}
+
+/* Sticky styles for desktop nav links and sign-in button */
+.f1fn83er.sticky .desktop-topnav nav a, .f1fn83er.sticky .desktop-topnav nav > div:last-child button {
+  color: rgb(38,38,38); /* Use ga-neutral-800 for dark text on white sticky navbar */
+}
+.f1fn83er.sticky .desktop-topnav .sign-in {
+  border-color: rgb(38,38,38); /* Darker border for sticky */
+  color: rgb(38,38,38);
+}
+
+/* Mobile specific styling for the main container (for React app's mobile overlay) */
+@media (max-width: 767px) { /* Adjust based on your md breakpoint */
+  .f1fn83er {
+    height: auto;
+    padding: 1rem;
+    background: linear-gradient(180deg, rgba(26, 26, 26, 0.75) 0%, rgba(0, 0, 0, 0) 100%);
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  .f1fn83er-mobile { /* This class is applied to the mobile topnav wrapper in Navbar.jsx */
+    background: white; /* Make it white on mobile */
+  }
+  .f1fn83er-mobile .hamburger-menu svg {
+    color: rgb(38,38,38); /* Darker for white background */
+  }
+  /* Ensure logo is dark on mobile sticky nav */
+  .f1fn83er-mobile .ga-logo img {
+    filter: brightness(0.2);
+  }
+}
+
+/* Styles for dropdown links within Navbar */
+#resourcesDropdown a,
+#mobile-resources-dropdown a {
+  color: rgb(38,38,38) !important; /* text-ga-neutral-800 */
+  background: white !important;
+}
+#resourcesDropdown a:hover,
+#mobile-resources-dropdown a:hover {
+  color: #fff !important;
+  background: rgb(31,179,212) !important; /* ga-primary-blue */
+}
+
+/* Remaining styles from previous versions */
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.blog-tile {
+  @apply bg-white rounded-lg shadow-md overflow-hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.blog-tile:hover {
+  @apply transform scale-105 shadow-xl; /* Enhanced hover for cards */
+}
+
+.btn-outline-primary {
+  @apply border-ga-primary-blue text-ga-primary-blue;
+}
+.btn-outline-primary:hover,
+.btn-outline-primary.active { /* Active state highlight */
+  @apply bg-ga-primary-blue text-white;
+}
+
+.blog-fullpage-overlay {
+  background-color: rgba(0, 0, 0, 0.95); /* Darker overlay */
+  transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+.blog-fullpage-container {
+  /* Ensure max-width, padding, and responsiveness */
+  max-width: 900px;
+  height: calc(100% - 4rem); /* Occupy full height minus some margin */
+  margin: 2rem auto; /* Center with margin */
+  padding: 2rem; /* Adjusted padding */
+  border-radius: 8px;
+  background: white; /* Force white background for container */
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+  overflow-y: auto; /* Enable scrolling for content */
+  position: relative; /* For close button positioning */
+  display: flex; /* To center content */
+  flex-direction: column; /* To stack content */
+}
+
+.blog-close-btn {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 60; /* Ensure it's above content */
+}
+.blog-close-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: scale(1.1);
+}
+
+.blog-fullpage-content {
+  color: #333;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem 0; /* Adjusted padding */
+  flex-grow: 1; /* Allow content to grow */
+}
+.blog-post-content,
+.blog-post-content > *:not(pre):not(code) {
+  background-color: white !important;
+  color: inherit !important;
+}
+.blog-post-content h1,
+.blog-post-content h2,
+.blog-post-content h3,
+.blog-post-content h4,
+.blog-post-content h5,
+.blog-post-content h6 {
+  background-color: transparent !important;
+  color: theme('colors.ga-neutral-800') !important;
+}
+.blog-post-content p {
+  margin-bottom: 1.8rem;
+  font-size: 1.15rem;
+  color: #444;
+}
+.blog-post-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin: 1.5rem 0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.blog-post-content pre,
+.blog-post-content code {
+  background-color: #f5f5f5 !important;
+  color: #333 !important;
+  padding: 1em;
+  border-radius: 0.5em;
+  overflow-x: auto;
+}
+.blog-post-content a {
+  color: theme('colors.ga-primary-blue');
+  text-decoration: underline;
+}
+.blog-post-content a:hover {
+  color: theme('colors.secondary');
+}
+
+/* Responsive adjustments for full page blog view */
+@media (min-width: 768px) {
+  .blog-fullpage-container {
+    padding: 3rem;
+  }
+}
+@media (max-width: 576px) {
+  .blog-fullpage-content h1 {
+    font-size: 2rem;
+  }
+}
+
+/* Ensure no-scroll class works for body when overlay is active */
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* Ensure the image for logo is not filtered on static pages navbar */
+.desktop-topnav .ga-logo img {
+  filter: none; /* Remove filter for static pages on white background */
+}
+/* Re-apply filter for sticky navbar on main page if needed there */
+.f1fn83er.sticky .desktop-topnav .ga-logo img {
+  filter: brightness(0.2); /* Darken logo on sticky for main React app */
+}
+#resourcesDropdown a,
+#mobile-resources-dropdown a {
+  color: rgb(38,38,38) !important; /* text-ga-neutral-800 */
+  background: white !important;
+}
+#resourcesDropdown a:hover,
+#mobile-resources-dropdown a:hover {
+  color: #fff !important;
+  background: rgb(31,179,212) !important; /* ga-primary-blue */
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+.animate-fade-in {
+  animation: fade-in 0.6s cubic-bezier(.4,0,.2,1) both;
+}
